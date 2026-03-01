@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/view/terms/terms/terms.component.scss"],
-  "sourcesContent": [".about {\n  padding-top: 80px;\n}\n\n.collapse:has(input[type=\"radio\"]:checked) {\n  &.card-border-red {\n    box-shadow:\n      0 0 2em #ef4444,\n      0 0 6em #dc2626,\n      0 0 12em #7f1d1d !important;\n  }\n  &.card-border-white {\n    box-shadow:\n      0 0 2em #f4f4f5,\n      0 0 6em #d4d4d8,\n      0 0 12em #a1a1aa !important;\n  }\n  &.card-border-graphite {\n    box-shadow:\n      0 0 2em #71717a,\n      0 0 6em #52525b,\n      0 0 12em #3f3f46 !important;\n  }\n}\n"],
-  "mappings": ";AAAA,CAAA;AACE,eAAA;;AAIA,CAAA,QAAA,KAAA,KAAA,CAAA,WAAA,SAAA,CAAA;AACE;IACE,EAAA,EAAA,IAAA,OAAA;IAAA,EAAA,EAAA,IAAA,OAAA;IAAA,EAAA,EAAA,KAAA;;AAIJ,CANA,QAMA,KAAA,KAAA,CAAA,WAAA,SAAA,CAAA;AACE;IACE,EAAA,EAAA,IAAA,OAAA;IAAA,EAAA,EAAA,IAAA,OAAA;IAAA,EAAA,EAAA,KAAA;;AAIJ,CAZA,QAYA,KAAA,KAAA,CAAA,WAAA,SAAA,CAAA;AACE;IACE,EAAA,EAAA,IAAA,OAAA;IAAA,EAAA,EAAA,IAAA,OAAA;IAAA,EAAA,EAAA,KAAA;;",
-  "names": []
-}
