@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/core/services/scroll-top.service.ts"],
+  "sourcesContent": ["import { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class ScrollTopService {\n/** Прокрутка к верху с плавной анимацией (500мс) */\ntoTop(): void {\n  window.scrollTo({\n    top: 0,\n    left: 0,\n    behavior: 'smooth'\n  });\n}\n\n/** Мгновенная прокрутка (если нужна жёсткая) */\ntoTopInstant(): void {\n  window.scrollTo(0, 0);\n}\n}\n"],
+  "mappings": ";;;;;AAKM,IAAO,mBAAP,MAAO,kBAAgB;;EAE7B,QAAK;AACH,WAAO,SAAS;MACd,KAAK;MACL,MAAM;MACN,UAAU;KACX;EACH;;EAGA,eAAY;AACV,WAAO,SAAS,GAAG,CAAC;EACtB;;qCAba,mBAAgB;EAAA;4EAAhB,mBAAgB,SAAhB,kBAAgB,WAAA,YAFf,OAAM,CAAA;;",
+  "names": []
+}

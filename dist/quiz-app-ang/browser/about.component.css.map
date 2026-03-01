@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/view/about/about/about.component.scss"],
+  "sourcesContent": [".about {\n  padding-top: 80px;\n}\n@media (max-width: 1024px) {\n  .collapse-title {\n    padding: 10px 0;\n    font-size: 18px;\n  }\n}\n"],
+  "mappings": ";AAAA,CAAA;AACE,eAAA;;AAEF,OAAA,CAAA,SAAA,EAAA;AACE,GAAA;AACE,aAAA,KAAA;AACA,eAAA;;;",
+  "names": []
+}

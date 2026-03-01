@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/view/contacts/contacts/contacts.component.scss"],
+  "sourcesContent": [".contatcts {\n  .contacts-wrapper {\n    height: 500px;\n  }\n  .loading {\n    width: 300px;\n  }\n}\n"],
+  "mappings": ";AACE,CAAA,UAAA,CAAA;AACE,UAAA;;AAEF,CAHA,UAGA,CAAA;AACE,SAAA;;",
+  "names": []
+}

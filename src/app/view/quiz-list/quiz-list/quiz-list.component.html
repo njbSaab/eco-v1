@@ -1,0 +1,96 @@
+<ng-container *ngIf="isvisible">
+  <app-banner
+    [quizCount]="quizzes.length"
+    (close)="hideBanner()"
+    (showAll)="showAllQuizzes()"
+    [page]="page"
+  ></app-banner>
+</ng-container>
+
+<div [ngClass]="{ 'h-space': !isvisible }" class="quiz-list mx-w-1200">
+  <ng-container *ngIf="quizzes?.length; else loading" >
+    <div
+      class="bg-gradient-to-b from-zinc-950 via-red-900/50 to-zinc-950 rounded-box py-0 md:py-5"
+    >
+      <div
+        class="quiz-list-wrapper grid grid-cols-1 lg:grid-cols-3"
+        [@listAnimation]
+      >
+        <div
+          class="card quiz-item bg-card-gradient max-w-[450px] mx-auto w-full"
+          *ngFor="let quiz of filteredQuizzes"
+          [routerLink]="['/quiz', quiz.id]"
+          data-gtm-card
+          [attr.data-gtm-quiz-id]="quiz.id"
+          [attr.data-gtm-title]="quiz.title"
+          [attr.data-gtm-action]="'click_card'"
+        >
+          <!-- Wishlist button -->
+          <button
+            class="btn btn-circle btn-sm bg-transparent border transition absolute right-2 top-2"
+            [class.border-red-600]="favoritesService.isFavorite(quiz.id)"
+            [class.text-red-400]="favoritesService.isFavorite(quiz.id)"
+            [class.border-zinc-600]="!favoritesService.isFavorite(quiz.id)"
+            [class.text-zinc-400]="!favoritesService.isFavorite(quiz.id)"
+            (click)="onFavClick($event, quiz)"
+            title="Add to Favorites">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                 [attr.fill]="favoritesService.isFavorite(quiz.id) ? 'currentColor' : 'none'"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </button>
+          <figure>
+            <img
+              *ngIf="quiz.previewImage"
+              [src]="quiz.previewImage"
+              alt="{{ quiz.title }}"
+            />
+          </figure>
+          <div class="card-body relative">
+            <div class="card-body-header flex justify-between items-center">
+              <span class="text-sm text-zinc-400 badge bg-red-v">sale</span>
+              <div class="rating">
+                <input
+                  *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
+                  type="radio"
+                  name="rating-{{ quiz.id }}"
+                  class="mask mask-star bg-red-v w-[15px] h-[15px]"
+                  [ngClass]="{ filled: i < (quiz.rating || 0) }"
+                />
+              </div>
+            </div>
+            <h2 class="card-title">{{ quiz.title }}</h2>
+            <!-- <p>{{ quiz.description }}</p> -->
+            <h2 class="card-title">{{ quiz.titleAdm }}$ </h2>
+          </div>
+
+          <div class="card-actions justify-between items-center card-footer">
+
+            <button class="btn btn-accent btn-card text-base-200">
+              <span>
+                <svg
+                  class="h-10 w-10 fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+              Buy Now 🤩
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #loading>
+    <div class="loading-container text-center h-screen">
+      <span class="loading loading-ring text-red-400 loading-xl"></span>
+      <span class="loading loading-ring text-red-900 loading-md"></span>
+    </div>
+  </ng-template>
+</div>

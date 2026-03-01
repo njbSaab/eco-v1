@@ -1,0 +1,120 @@
+<ng-container *ngIf="state">
+
+  <!-- ── Backdrop ── -->
+  <div class="lb-backdrop" [@backdrop] (click)="onOverlayClick()"></div>
+
+  <!-- ── Full-screen panel ── -->
+  <div class="lb-panel" [@panel] (click)="onOverlayClick()">
+
+    <!-- ═══ TOP BAR ═══ -->
+    <div class="lb-topbar" (click)="$event.stopPropagation()">
+
+      <!-- Counter -->
+      <span class="lb-counter" *ngIf="hasMultiple">
+        {{ currentIndex + 1 }} / {{ total }}
+      </span>
+
+      <span class="lb-spacer"></span>
+
+      <!-- Zoom toggle -->
+      <button class="lb-btn" [class.lb-btn--active]="isZoomed"
+              (click)="isZoomed = !isZoomed"
+              [title]="isZoomed ? 'Zoom out' : 'Zoom in'">
+        <svg *ngIf="!isZoomed" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          <line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
+        </svg>
+        <svg *ngIf="isZoomed" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          <line x1="8" y1="11" x2="14" y2="11"/>
+        </svg>
+      </button>
+
+      <!-- Close -->
+      <button class="lb-btn lb-btn--close" (click)="close()" title="Close  Esc">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- ═══ MAIN IMAGE AREA ═══ -->
+    <div class="lb-stage" (click)="onOverlayClick()">
+
+      <!-- Prev arrow -->
+      <button *ngIf="hasMultiple"
+              class="lb-nav lb-nav--prev"
+              (click)="navigate(-1, $event)"
+              title="Previous  ←">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+
+      <!-- Image wrapper -->
+      <div class="lb-img-wrap"
+           [class.lb-img-wrap--zoomed]="isZoomed"
+           (click)="onImageClick($event)">
+
+        <!-- Skeleton shimmer -->
+        <div *ngIf="!isLoaded" class="lb-skeleton"></div>
+
+        <img class="lb-img"
+             [class.lb-img--visible]="isLoaded"
+             [class.lb-img--zoomed]="isZoomed"
+             [src]="currentSrc"
+             [alt]="state.alt"
+             (load)="onImageLoad()"
+             draggable="false" />
+
+        <!-- Zoom cursor hint -->
+        <span class="lb-zoom-hint" *ngIf="isLoaded">
+          <svg *ngIf="!isZoomed" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            <line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
+          </svg>
+          <svg *ngIf="isZoomed" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            <line x1="8" y1="11" x2="14" y2="11"/>
+          </svg>
+        </span>
+      </div>
+
+      <!-- Next arrow -->
+      <button *ngIf="hasMultiple"
+              class="lb-nav lb-nav--next"
+              (click)="navigate(1, $event)"
+              title="Next  →">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- ═══ THUMBNAIL STRIP ═══ -->
+    <div *ngIf="hasMultiple" class="lb-thumbs" (click)="$event.stopPropagation()">
+      <button
+        class="lb-thumb"
+        *ngFor="let src of state.images; let i = index"
+        [class.lb-thumb--active]="i === currentIndex"
+        (click)="goTo(i, $event)">
+        <img [src]="src" [alt]="state.alt + ' ' + (i + 1)" draggable="false" />
+      </button>
+    </div>
+
+    <!-- ═══ CAPTION ═══ -->
+    <div *ngIf="state.alt && !hasMultiple" class="lb-caption"
+         (click)="$event.stopPropagation()">
+      {{ state.alt }}
+    </div>
+
+  </div>
+
+</ng-container>

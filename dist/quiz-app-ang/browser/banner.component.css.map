@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/shared/components/banner/banner.component.scss"],
+  "sourcesContent": [".banner {\n  position: relative;\n  &::after {\n    background: linear-gradient(0deg, rgba(0, 0, 0, 0.48), rgba(0, 0, 0, 0.48)),\n      linear-gradient(180deg, rgba(1, 23, 44, 0) 57.96%, #01172c 96.67%);\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    content: \"\";\n  }\n  &::before {\n    position: absolute;\n    background-image: var(--custom-bg);\n    background-size: cover;\n    background-position: center center;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    content: \"\";\n  }\n  h1 {\n    text-wrap: balance;\n    text-wrap: nowrap;\n  }\n}\n\n@media (max-width: 1024px) {\n  .banner.h-space {\n    padding-top: 130px;\n    h1 {\n      text-wrap: balance;\n    }\n  }\n}\n"],
+  "mappings": ";AAAA,CAAA;AACE,YAAA;;AACA,CAFF,MAEE;AACE;IAAA;MAAA,IAAA;MAAA,KAAA,CAAA,EAAA,CAAA,EAAA,CAAA,EAAA,KAAA;MAAA,KAAA,CAAA,EAAA,CAAA,EAAA,CAAA,EAAA,MAAA;IAAA;MAAA,MAAA;MAAA,KAAA,CAAA,EAAA,EAAA,EAAA,EAAA,EAAA,GAAA,MAAA;MAAA,QAAA;AAEA,YAAA;AACA,OAAA;AACA,QAAA;AACA,SAAA;AACA,UAAA;AACA,WAAA;;AAEF,CAZF,MAYE;AACE,YAAA;AACA,oBAAA,IAAA;AACA,mBAAA;AACA,uBAAA,OAAA;AACA,OAAA;AACA,QAAA;AACA,SAAA;AACA,UAAA;AACA,WAAA;;AAEF,CAvBF,OAuBE;AACE,aAAA;AACA,aAAA;;AAIJ,OAAA,CAAA,SAAA,EAAA;AACE,GA9BF,MA8BE,CAAA;AACE,iBAAA;;AACA,GAhCJ,MAgCI,CAFF,QAEE;AACE,eAAA;;;",
+  "names": []
+}

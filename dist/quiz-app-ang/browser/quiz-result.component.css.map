@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/view/quiz-result/quiz-result/quiz-result.component.scss"],
+  "sourcesContent": [".quiz-result {\n  border-radius: 20px;\n  form {\n    border-radius: 20px;\n    max-width: 400px;\n    margin: 0 auto;\n    overflow: hidden;\n  }\n  .form-wrapper {\n    display: flex;\n    flex-direction: column;\n    gap: 25px;\n    padding: 40px;\n  }\n  small {\n    position: absolute;\n    top: -22.5px;\n  }\n  .btn {\n    width: 100%;\n    boreder-radius: 0 !important;\n    height: 55px;\n    font-size: 15px;\n  }\n  .btn:active {\n    transform: scale(1);\n  }\n}\n.quiz-result.h-space {\n  padding: 70px 0;\n  margin-top: 150px;\n}\n\n@media (max-width: 768px) {\n  .quiz-result.h-space {\n    padding: 20px 0 60px;\n    margin-top: 110px;\n  }\n  .quiz-result {\n    .form-wrapper {\n      display: flex;\n      flex-direction: column;\n      gap: 25px;\n      padding: 25px;\n    }\n    h3 {\n      padding-bottom: 0;\n    }\n  }\n}\n"],
+  "mappings": ";AAAA,CAAA;AACE,iBAAA;;AACA,CAFF,YAEE;AACE,iBAAA;AACA,aAAA;AACA,UAAA,EAAA;AACA,YAAA;;AAEF,CARF,YAQE,CAAA;AACE,WAAA;AACA,kBAAA;AACA,OAAA;AACA,WAAA;;AAEF,CAdF,YAcE;AACE,YAAA;AACA,OAAA;;AAEF,CAlBF,YAkBE,CAAA;AACE,SAAA;AACA,kBAAA;AACA,UAAA;AACA,aAAA;;AAEF,CAxBF,YAwBE,CANA,GAMA;AACE,aAAA,MAAA;;AAGJ,CA5BA,WA4BA,CAAA;AACE,WAAA,KAAA;AACA,cAAA;;AAGF,OAAA,CAAA,SAAA,EAAA;AACE,GAlCF,WAkCE,CANF;AAOI,aAAA,KAAA,EAAA;AACA,gBAAA;;AAGA,GAvCJ,YAuCI,CA/BF;AAgCI,aAAA;AACA,oBAAA;AACA,SAAA;AACA,aAAA;;AAEF,GA7CJ,YA6CI;AACE,oBAAA;;;",
+  "names": []
+}
