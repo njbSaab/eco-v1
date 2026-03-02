@@ -52,9 +52,7 @@
         class="btn btn-circle btn-sm bg-transparent border border-zinc-700 hover:border-red-600 relative"
         (click)="openCart()"
         title="Cart">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM5.5 6H21l-1.68 8.39c-.16.8-.87 1.61-1.85 1.61H8.55c-.99 0-1.7-.82-1.85-1.62L5.5 6zM3 2H1v2h2l3.6 7.59L5.25 14A2 2 0 0 0 7 17h14v-2H7.42a.25.25 0 0 1-.25-.25l.03-.12L8.1 13h9.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21L4.27 2H3z"/>
-        </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007M8.625 10.5a.375.375 0 1 1-.75 0a.375.375 0 0 1 .75 0m7.5 0a.375.375 0 1 1-.75 0a.375.375 0 0 1 .75 0"/></svg>
         <span
           *ngIf="(cartCount$ | async) as n"
           class="badge badge-xs absolute -top-1 -right-1 bg-red-700 text-white border-0 text-[10px] min-w-[16px] h-[16px] flex items-center justify-center rounded-full">

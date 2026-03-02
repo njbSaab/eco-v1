@@ -19,6 +19,12 @@ export class CartModalComponent {
   favItems$: Observable<Quiz[]>;
   favCount$: Observable<number>;
 
+  showOrderForm = false;
+  showSuccess = false;
+  orderName = '';
+  orderPhone = '';
+  orderEmail = '';
+
   constructor(
     public modalService: CartModalService,
     public cartService: CartService,
@@ -50,5 +56,31 @@ export class CartModalComponent {
 
   removeFromFav(id: number): void {
     this.favoritesService.remove(id);
+  }
+
+  openOrderForm(): void {
+    this.showOrderForm = true;
+  }
+
+  closeOrderForm(): void {
+    this.showOrderForm = false;
+    this.orderName = '';
+    this.orderPhone = '';
+    this.orderEmail = '';
+  }
+
+  submitOrder(): void {
+    if (!this.orderName.trim() || !this.orderPhone.trim() || !this.orderEmail.trim()) {
+      return;
+    }
+    this.showOrderForm = false;
+    this.showSuccess = true;
+    this.orderName = '';
+    this.orderPhone = '';
+    this.orderEmail = '';
+  }
+
+  closeSuccess(): void {
+    this.showSuccess = false;
   }
 }
