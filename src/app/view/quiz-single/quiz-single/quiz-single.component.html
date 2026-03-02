@@ -1,9 +1,9 @@
-<div *ngIf="quiz; else notFound" class="quiz-detail h-space mb-14 mt-4">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 ">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-start mt-4 mb-8 relative">
+<div *ngIf="quiz; else notFound" class="quiz-detail h-space lg:mb-14 mb-0 mt-4">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 lg:py-8 py-0 ">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-start mt-4 mb-0 lg:mb-8 relative">
 
       <!-- ── LEFT: Image + thumbnails ── -->
-      <div class="flex flex-col gap-4" [@blurIn]>
+      <div class="flex flex-col gap-4 thumbnails-wrapper" [@blurIn]>
 
         <!-- Main image stack -->
         <figure
@@ -47,7 +47,7 @@
       </div>
 
       <!-- ── RIGHT: Product details ── -->
-      <div class="flex flex-col gap-5 mt-[-45px]">
+      <div class="flex flex-col gap-2 lg:gap-5 mt-[-45px]">
 
         <!-- Badge -->
         <span class="w-fit text-xs font-semibold tracking-widest uppercase px-3 py-1 rounded-full
@@ -142,7 +142,7 @@
         
         <!-- Related products -->
         <div *ngIf="relatedQuizzes.length"
-             class="flex gap-3 overflow-x-auto pb-2"
+             class="flex gap-3 overflow-x-auto pb-2 pt-2"
              style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;">
           <div
             *ngFor="let item of relatedQuizzes"
@@ -173,7 +173,7 @@
                 </figure>
                 <div class="card-body p-3 flex-1">
                   <div class="flex justify-between items-center">
-                    <span class="text-xs text-zinc-400 badge bg-red-v">sale</span>
+                    <span class="text-xs text-zinc-400 p-2 badge bg-red-v">sale</span>
                     <div class="rating rating-sm">
                       <input
                         *ngFor="let star of [1,2,3,4,5]; let i = index"

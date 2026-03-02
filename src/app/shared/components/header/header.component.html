@@ -96,8 +96,8 @@
     [checked]="isMenuOpen"
     (change)="onToggle($event)"/>
 
-  <!-- ✅ МОБИЛЬНОЕ МЕНЮ (динамическое) -->
-  <div class="drawer drawer-end md:hidden fixed z-[1111]" [class.drawer-open]="isMenuOpen">
+  <!-- ✅ МЕНЮ (единый drawer для всех экранов) -->
+  <div class="drawer drawer-end fixed z-[1111]" [class.drawer-open]="isMenuOpen">
     <input id="mobile-drawer" type="checkbox" class="drawer-toggle" (click)="closeMenu()"/>
     <div class="drawer-side z-50">
       <label for="menu-toggle" class="drawer-overlay" (click)="closeMenu()"></label>
@@ -110,7 +110,7 @@
             class="w-[50px] p-0"
             src="https://i.ibb.co/Qvd3RYXX/5.png"
             alt=""/>
-          <span class="text-3xl font-semibold tracking-tight cursor-pointer">
+          <span class="text-3xl font-semibold tracking-tight logo-wrapper cursor-pointer">
             <span
               [routerLink]="['/main']"
               (click)="closeMenu()"
@@ -150,46 +150,4 @@
     </div>
   </div>
 
-  <!-- ✅ ДЕСКТОПНОЕ МЕНЮ (динамическое) -->
-  <div
-    class="hidden md:block fixed top-0 right-0 h-full w-80 bg-base-200 z-50 transition-transform duration-300 drawer-desktop"
-    [class.translate-x-0]="isMenuOpen"
-    [class.translate-x-full]="!isMenuOpen">
-    <div class="absolute inset-0 bg-black/50 drawer-overlay" (click)="closeMenu()" *ngIf="isMenuOpen"></div>
-    <div class="relative h-full p-0">
-      <ul class="menu">
-        <!-- Лого и название -->
-        <li class="flex flex-row justify-center items-center py-4" (click)="closeMenu()">
-          <img class="w-[70px]" src="https://i.ibb.co/Qvd3RYXX/5.png" alt=""/>
-          <span [routerLink]="['/main']" class="text-3xl font-semibold tracking-tight cursor-pointer">
-            <span class="bg-gradient-to-r from-red-900 via-red-400 to-red-800 bg-clip-text text-transparent">
-              ShopNow
-            </span>
-          </span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
-               class="absolute right-4 cursor-pointer p-0">
-            <g fill="none" stroke="#fff" stroke-dasharray="16" stroke-dashoffset="16" 
-               stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-              <path d="M7 7l10 10"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s" values="16;0"/></path>
-              <path d="M17 7l-10 10"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.4s" dur="0.4s" values="16;0"/></path>
-            </g>
-          </svg>
-        </li>
-        
-        <!-- ✅ ДИНАМИЧЕСКИЕ ПУНКТЫ МЕНЮ -->
-        <li class="w-1/2 mx-auto" *ngFor="let item of menuItems">
-          <a
-            [routerLink]="[item.route]"
-            (click)="closeMenu()"
-            class="btn btn-ghost accent-hover rounded-[30px] text-lg"
-            routerLinkActive="router-link-active">
-            {{ item.label }}
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-              <path fill="#fff" d="M12.6 12L8 7.4L9.4 6l6 6l-6 6L8 16.6z"/>
-            </svg>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
 </header>
