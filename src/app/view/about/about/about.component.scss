@@ -7,3 +7,24 @@
     font-size: 18px;
   }
 }
+
+.collapse:has(input[type="radio"]:checked) {
+  &.card-border-red {
+    box-shadow:
+      0 0 2em #ef4444,
+      0 0 6em #dc2626,
+      0 0 12em #7f1d1d !important;
+  }
+  &.card-border-white {
+    box-shadow:
+      0 0 2em #f4f4f5,
+      0 0 6em #d4d4d8,
+      0 0 12em #a1a1aa !important;
+  }
+  &.card-border-graphite {
+    box-shadow:
+      0 0 2em #71717a,
+      0 0 6em #52525b,
+      0 0 12em #3f3f46 !important;
+  }
+}

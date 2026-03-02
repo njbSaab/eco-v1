@@ -20,13 +20,14 @@
       <!-- Левое меню -->
       <div class="lg:mx-12">
         <div class="space-y-4 md:pt-4">
-          <ng-container *ngFor="let tab of data?.tabs">
-            <p class="block hover:text-red-500 transition-all cursor-pointer text-lg"
+          <ng-container *ngFor="let tab of data?.tabs; let i = index">
+            <p class="block transition-all cursor-pointer text-lg"
                [ngClass]="{
-                 'text-cyan-500': activeTab === 'cayn' && tab.color === 'cayn',
-                 'text-fuchsia-500': activeTab === 'fuchsia' && tab.color === 'fuchsia',
-                 'text-blue-500': activeTab === 'center' && tab.color === 'center',
-                 'text-gray-300': activeTab !== tab.id
+                 'text-red-500':  [0,3,6,9].includes(i),
+                 'text-zinc-100': [1,4,7,10].includes(i),
+                 'text-zinc-500': [2,5,8,11].includes(i),
+                 'opacity-100 font-semibold': activeTab === tab.id,
+                 'opacity-40':   activeTab !== tab.id
                }"
                (click)="setActiveTab(tab.id)">
               - {{ tab.label }}
@@ -38,10 +39,10 @@
       <!-- Аккордеон -->
       <div class="flex-1 mt-4 lg:mx-12 lg:mt-0 text-balance">
         <ng-container *ngFor="let tab of data?.tabs, let i = index">
-          <div class="collapse cursor-pointer border my-4" #collapse 
-          [class.border-cyan-300]="[0,3,6,9].includes(i)"
-          [class.border-fuchsia-300]="[1,4,7,10].includes(i)"
-          [class.border-blue-300]="[2,5,8,11].includes(i)">
+          <div class="collapse collapse-arrow border rounded-box my-4" #collapse
+          [class.card-border-red]="[0,3,6,9].includes(i)"
+          [class.card-border-white]="[1,4,7,10].includes(i)"
+          [class.card-border-graphite]="[2,5,8,11].includes(i)">
             <input type="radio"
                    name="my-accordion-1"
                    [value]="tab.id"
@@ -54,9 +55,9 @@
 
             <div class="collapse-content flex">
               <span class="border ml-4"
-                    [class.border-cyan-500]="tab.color === 'cayn'"
-                    [class.border-fuchsia-500]="tab.color === 'fuchsia'"
-                    [class.border-blue-500]="tab.color === 'center'"></span>
+                    [class.border-red-500]="[0,3,6,9].includes(i)"
+                    [class.border-zinc-100]="[1,4,7,10].includes(i)"
+                    [class.border-zinc-500]="[2,5,8,11].includes(i)"></span>
               <p class="max-w-3xl px-4 text-gray-500 dark:text-gray-300" [innerHTML]="tab.body"></p>
             </div>
           </div>

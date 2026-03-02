@@ -97,7 +97,7 @@
     (change)="onToggle($event)"/>
 
   <!-- ✅ МЕНЮ (единый drawer для всех экранов) -->
-  <div class="drawer drawer-end fixed z-[1111]" [class.drawer-open]="isMenuOpen">
+  <div class="drawer drawer-end fixed z-[1111] bg-shadow" [class.drawer-open]="isMenuOpen" >
     <input id="mobile-drawer" type="checkbox" class="drawer-toggle" (click)="closeMenu()"/>
     <div class="drawer-side z-50">
       <label for="menu-toggle" class="drawer-overlay" (click)="closeMenu()"></label>
